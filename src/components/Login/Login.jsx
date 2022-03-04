@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
-import Home from '../home/Home';
 
 function Login() {
 
@@ -9,13 +8,12 @@ function Login() {
 
     const [flag, setFlag] = useState(false);
 
-    const [home, setHome] = useState(true);
 
 
     function handleLogin(e) {
         e.preventDefault();
-        let pass = localStorage.getItem('hardikSubmissionPassword').replace(/"/g, "");
-        let mail = localStorage.getItem('hardikSubmissionEmail').replace(/"/g, "");
+        let pass = localStorage.getItem('SubmissionPassword').replace(/"/g, "");
+        let mail = localStorage.getItem('SubmissionEmail').replace(/"/g, "");
         // .replace(/"/g,"") is used to remove the double quotes for the string
 
         if (!emaillog || !passwordlog) {
@@ -24,7 +22,7 @@ function Login() {
         } else if ((passwordlog !== pass) || (emaillog !== mail)) {
             setFlag(true);
         } else {
-            setHome(!home);
+            
             setFlag(false);
         }
     }
@@ -32,7 +30,7 @@ function Login() {
 
     return (
         <div>
-            {home ? <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin}>
                 <h3>LogIn</h3>
                 <div className="form-group">
                     <label>Email</label>
@@ -50,8 +48,8 @@ function Login() {
                     Fill correct Info else keep trying.
                         </Alert>}
             </form>
-                : <Home />
-            }
+               
+         
 
         </div>
     )
