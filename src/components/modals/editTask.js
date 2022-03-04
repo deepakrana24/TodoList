@@ -9,26 +9,26 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
         
         const {name, value} = e.target
 
-        // if(name === "taskName"){
-        //     setTaskName(value)
-        // }else{
-        //     setDescription(value)
-        // }
+        if(name === "taskName"){
+            setTaskName(value)
+        }else{
+            setDescription(value)
+        }
 
 
     }
 
-    // useEffect(() => {
-    //     setTaskName(taskObj.Name)
-    //     setDescription(taskObj.Description)
-    // },[])
+    useEffect(() => {
+        setTaskName(taskObj.Name)
+        setDescription(taskObj.Description)
+    },[])
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        // let tempObj = {}
-        // tempObj['Name'] = taskName
-        // tempObj['Description'] = description
-        // updateTask(tempObj)
+        let tempObj = {}
+        tempObj['Name'] = taskName
+        tempObj['Description'] = description
+        updateTask(tempObj);
     }
 
     return (

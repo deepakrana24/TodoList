@@ -27,7 +27,6 @@ function Registration() {
             localStorage.setItem("SubmissionEmail", JSON.stringify(email));
             localStorage.setItem("SubmissionPassword", JSON.stringify(password));
             console.log("Saved in Local Storage");
-
             setLogin(!login)
 
         }
